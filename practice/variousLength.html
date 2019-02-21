@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html><!--4-->
+    
+    <head>
+        <title>Sorting</title>
+        <link rel="stylesheet" href="a.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    </head>
+<body>
+  <form method="post" name="myForm" class="form-group ">
+    <pre>Array of strings</pre>
+    <h4>Enter strings and Click the button for solution</h4>
+    <div class="form-group ">
+      <div><input id="number" type="text" class="form-control"></div>
+      <div><button type="button" class="btn btn-primary" id="my-btnL" onclick="myValidationLength()">By Length</button></div>
+      <div><button type="button" class="btn btn-primary" id="my-btnA" onclick="myValidationAlphabetical()">By Alphabetical</button></div>
+      <div><button type="button" class="btn btn-primary" id="my-btnVl" onclick="myValidationVl()">By Vowels Length</button></div>
+      
+      
+    </div>    
+    <p id="disp"></p>
+  </form>
+    <script>
+        var arr=["hkumar", "ram", "anil", "aparna", "akhil"]
+      function myValidationAlphabetical(){
+         
+          if(!(arr instanceof Array)){
+            console.log("Not array");
+            text = "Not an array";
+          } else{
+           text = "Alphabetically Sorted Arreay: " +arr.sort();
+           console.log("Alphabetically Sorted Array: " +arr);
+
+
+
+          }
+        document.getElementById("disp").innerHTML = text;
+      }
+      
+      function myValidationLength(){
+                    
+          if(!(arr instanceof Array)){
+            console.log("Not array");
+            text = "Not an array";
+          } else{
+            console.log(arr.sort((a,b) => (a-b)));
+           text = "Length-wise Sorted Array: " + (arr.sort((a,b) => (a.length-b.length)));
+           console.log("Length-wise Sorted Array: " +arr);
+          }
+        document.getElementById("disp").innerHTML = text;
+      }
+
+      function myValidationVl(){
+        
+        if(!(arr instanceof Array)){
+            console.log("Not array");
+            text = "Not an array";
+        } else{
+            console.log(arr.sort( (a,b) =>(a.match(/[aeiou]/ig).length - b.match(/[aeiou]/ig).length)   )    )
+            text = "On Length of Vowels Sorted Array: " + (arr.sort((a,b) =>(((a.match(/[aeiou]/ig)).length) - ((b.match(/[aeiou]/ig)).length))   )    )
+            console.log("On Length of Vowels Sorted Array: " +arr);
+        }
+        document.getElementById("disp").innerHTML = text;
+      }
+    </script>
+</body>
+</html>

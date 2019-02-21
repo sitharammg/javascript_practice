@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html><!--6-->
+  <head>
+    <title>Even Numbers Sort</title>
+    <link rel="stylesheet" href="arrStyle.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  </head>
+<body>
+  <form method="post" name="myForm">
+      <pre>Given an array of mixed even and odd numbers. Sort only even numbers. 
+      Ignore odd numbers and their positions 
+      Input [8, 2, 3, 6, 5, 9, 1, 4, 7] 
+      Output [2, 4, 3, 6, 5, 9, 1, 8, 7] </pre>
+    <p>Please click the button to Sort the array as per Requirement:</p></br>
+    <button type="button" onclick="myValidation()">Submit</button>
+
+    <p id="disp"></p>
+  </form>
+    <script>
+      function myValidation(){
+        var arr = [8, 2, 3, 6, 5, 9, 1, 4, 7];
+        var text;
+        if(!(arr instanceof Array)){
+            console.log("Not array");
+            text = "Not an array";
+          } else{
+            var len=arr.length, b=[], j=0;
+            for(let i=0; i<len; i++){
+              if((arr[i]%2)==0){
+                  b[j]=arr[i];
+                  j++;
+              }
+            }
+            b.sort();
+            
+            var k=0;
+            for(let i=0; i<len; i++){
+                if((arr[i]%2)==0){
+                    arr[i]=b[k];
+                    k++;
+                    
+                }
+            }
+            
+            text="[";
+            for (let x in arr){
+              
+              if(x==len-1){
+                text+= arr[x] + "]";
+              }
+              else{
+                text+= arr[x] + ", ";
+              }
+            }
+          }
+        document.getElementById("disp").innerHTML = text;
+      }
+      
+    </script>
+</body>
+</html>

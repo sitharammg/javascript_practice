@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html><!--1-->
+    
+    <head>
+        <title>Factorial of a Number</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    </head>
+<body>
+  <form method="post" name="myForm" class="form-group">
+    <h4>Please input a nmber between 0 and 100 to calculate factorial:</h4>
+    <input id="number" type="text">
+    <button type="button" class="btn btn-primary" onclick="myValidation()">Submit</button>
+
+    <p id="disp"></p>
+  </form>
+    <script>
+         function findFactorial(a){
+             if(a==0){
+                return 1;
+              }
+             return a * findFactorial(a-1);
+        }
+      function myValidation(){
+        var n = document.getElementById("number").value;
+        var re=/^[0-9]+$/;
+        if(n == ""){
+          text="Number not provided";
+        }
+        else if((!(n.match(re)))|| n < 0 || n >100){
+            text="Enter between 0 and 100";
+           
+        } else { 
+            text = findFactorial(n);
+        }
+        document.getElementById("disp").innerHTML = text;
+      }
+      
+    </script>
+</body>
+</html>

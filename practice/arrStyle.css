@@ -1,0 +1,28 @@
+*{box-sizing: border-box}
+
+form{
+    width: 600px;
+    height: 300px;
+    border: 1px solid blue;
+    margin: 170px auto;
+    padding: 10px;
+    text-align: center;
+    background: #f3f3f3;
+}
+#number{
+    float: left;
+    width: 60%;
+    margin: 0 10px 0 60px;
+}
+h4{
+    padding: 10px 0;
+}
+#my-btn{
+    float: left;
+    width: 15%;
+    outline: none;
+}
+#disp{
+    clear: both;
+    padding-top:10px;
+}

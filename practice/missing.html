@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html><!--5-->
+    
+    <head>
+        <title>Finding Missing number in an Array</title>
+        <link rel="stylesheet" href="arrStyle.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    </head>
+<body>
+  <form method="post" name="myForm" class="form-group ">
+    <pre>Find missing value in an array of numbers    
+    Ex: [7, 2, 3, 6, 5, 10, 1, 4, 8] </pre>
+    <h4>Please click the button for solution</h4>
+    <div class="form-group ">
+      <div><input id="number" type="text" class="form-control"></div>
+      <div><button type="button" class="btn btn-primary" id="my-btn" onclick="myValidation()">Click Here</button></div>
+    </div>    
+    <p id="disp"></p>
+  </form>
+    <script>
+      function myValidation(){
+          var arr = [7, 2, 3, 6, 5, 10, 1, 4, 8], text, len=arr.length ;
+          var missN=0;
+          if(!(arr instanceof Array)){
+            console.log("Not array");
+            text = "Not an array";
+          } else{
+           
+            text = "Array";
+            arr.sort((a,b) => (a-b));
+            console.log("Array=" + arr);
+            text="No missing Number"
+            for(let i=0; i<len; i++){
+                if(arr[i+1]-arr[i]==2){
+                    missN=arr[i]+1;
+                    text="Missing number is " + missN;
+                } 
+            }
+          }
+        document.getElementById("disp").innerHTML = text;
+      }
+      
+    </script>
+</body>
+</html>
