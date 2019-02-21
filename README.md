@@ -1,2 +1,2 @@
 # javascript_practice
-Javascript Challenges for training purpose.
+Javascript Challenges for training purpose...
