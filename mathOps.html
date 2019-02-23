@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ><!--32-->
+    
+    <head>
+        <title>Math Operations</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    </head>
+<body onload="focus()">
+  <form method="post" name="myForm" class="form-group ">
+    <h5>Please input numbers to find the Basic Mathematical Operations </h5>
+    <div class="form-group ">
+        <div><input id="numberS" type="text" class="form-control"></div>
+        
+        <div><button type="button" class="btn btn-primary" id="my-btn" onclick="myValidation()">Submit</button></div>
+    </div>  
+    <p id="dispA"></p>  
+    <p id="disp"></p>
+  </form>
+    <script>
+        function focus(){
+           document.getElementById("numberS").focus();
+        }
+        
+        function myValidation(){
+        var s = document.getElementById("numberS").value;
+        var re=/^[0-9,\s]+$/;
+        if(s == ""){
+            text="Please enter two numbers";
+            focus();
+        }
+        else if(!(s.match(re))){
+            text="Enter two numbers";
+            focus();
+           
+        } else { 
+          var arr=s.split(" ").map(Number);
+          console.log("Hi", arr)
+          if(arr.length==2){
+            class numClass{
+                constructor(a,b){
+                    this.a = a;
+                    this.b = b;
+                }
+
+                add(){
+                    return this.a + this.b
+                }
+                multi(){
+                    return this.a * this.b
+                }
+                exp(){
+                    return Math.pow(this.a, this.b)
+                }
+            }
+
+            var number = new numClass(arr[0], arr[1]);
+            text = "Addition: " + number.add() + "<br>" +
+            "Multiplication: " + number.multi() + "<br>" +
+            "Exponential: " + number.exp();
+          } else {
+            text= "Please enter specified number of inputs only";
+            focus();
+          } 
+        }
+        document.getElementById("disp").innerHTML = text;
+      }
+ 
+      
+    </script>
+</body>
+</html>

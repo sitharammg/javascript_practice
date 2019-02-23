@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html><!--30-->
+    
+    <head>
+        <title>Split Array</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    </head>
+<body onload="focus()">
+  <form method="post" name="myForm" class="form-group ">
+    <pre>split a given array/object by length/2 </pre>
+    <h4>Please input elements and press Split to split the array into two halves: </h4>
+    <div class="form-group ">
+        <div><input id="number" type="text" class="form-control"></div>
+        <div><button type="button" class="btn btn-primary" id="my-btn" onclick="myValidation()">Submit</button></div>
+    </div>    
+    <p id="disp"></p>
+  </form>
+    <script>
+      function focus(){
+           document.getElementById("number").focus();
+        }
+        
+      function myValidation(){
+        var text, n ="";
+        n+= document.getElementById("number").value;
+        var re=/^[\S\s]+$/;
+        if(n == ""){
+          text="Please input some elements";
+          focus();
+        }
+        else if(!(n.match(re))){
+            text="Enter a valid number";
+            focus();
+           
+        } else { 
+           var arr=n.replace(" ","").split(" ");
+            console.log("Accepted  arr: "+ arr);
+           if(!(arr instanceof Array)){
+              text = "Not an array";
+          } else{
+              
+                var first=[], second=[];
+                var len=arr.length;
+                var i=0, j=0; k=0
+                for(i=0; i<len; i++){
+                    if(i<(len/2)){
+                    first[j++] = arr[i];
+                    
+                    }else{
+                    second[k++] = arr[i];
+                    
+                    }
+                }
+                console.log(first)
+                console.log(second)
+                text = JSON.stringify(first) + " " + JSON.stringify(second);
+              //Logic Here
+          }
+            
+        }
+        document.getElementById("disp").innerHTML = text;
+      }
+    </script>
+</body>
+</html>

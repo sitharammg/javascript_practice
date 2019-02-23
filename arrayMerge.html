@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html><!--33-->
+    
+    <head>
+        <title>Merging of Arrays</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    </head>
+<body onload="focus()">
+  <form method="post" name="myForm" class="form-group ">
+        <h4>Please input elements of array to merge: </h4>
+        <p>array1 = ["a", "b", "c"];
+                array2 = ["d", "e", "f"];</p>
+        <div class="form-group ">
+            <!--<div><input id="number" type="text" class="form-control"></div>-->
+            <div><button type="button" class="btn btn-primary" id="my-btn" onclick="myValidation()">Merge</button></div>
+        </div>      
+    <p id="disp"></p>
+    <p id="dispObj"></p>
+  </form>
+    <script>
+        function myValidation(){
+        var  text="", array1, array2, myObj1, myObj2, textObj="";
+        array1 = ['a', 'b', 'c'];
+        array2 = ['d', 'e', 'f'];
+        myObj1 = {"a": 3, "b": 5, "c": 4};
+        myObj2 = {"d": 3, "e": 5, "f": 4};
+        
+        if(!(array1 instanceof Array)){text = "Array 1 is not array"}
+        else if(!(array2 instanceof Array)){text = "Array 2 is not array";}
+        else{
+          text = array1.concat(array2);
+          var jsona = JSON.stringify(text);
+        }
+        document.getElementById("disp").innerHTML = jsona
+        
+        if(!(myObj1 instanceof Object)){textObj = "myObj1 is not an Object"}
+        else if(!(myObj1 instanceof Object)){textObj = "myObj1 is not an Object";}
+        else{
+          textObj = Object.assign(myObj1, myObj2)
+          var json = JSON.stringify(textObj);
+          //document.getElementById("demo").innerHTML = json;
+        }
+        document.getElementById("dispObj").innerHTML = json
+      }
+    </script>
+</body>
+</html>
