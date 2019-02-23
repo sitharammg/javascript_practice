@@ -1,4 +1,4 @@
-function Prime(){
+function Prime() {
 
     var left = 0;
     var right = 0;
@@ -6,23 +6,21 @@ function Prime(){
     var j;
     var num = parseInt(document.prime.num.value);
     console.log(num)
-    for (i = num - 1; i > 0; i--) { 
+    for (i = num - 1; i > 0; i--) {
         left++;
         if (isPrime(i)) {
             console.log(left)
             break;
         }
-        
+
 
     }
-    for( j = num + 1; j < (2*num); j++)
-    { 
+    for (j = num + 1; j < (2 * num); j++) {
         right++;
-        if(isPrime(j))
-        {
+        if (isPrime(j)) {
             console.log(right)
             break;
-        } 
+        }
     }
 
     if (left == right) {
