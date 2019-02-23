@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html><!--22-->
+    
+    <head>
+        <title>Flip Coin</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    </head>
+<body>
+  <form method="post" name="myForm" class="form-group ">
+    <pre>flipacoin() -> return a random heads/tails  </pre>
+    <h4>Please press Toss button to Toss a coin</h4>
+    <div class="form-group ">
+        <div><button type="button" class="btn btn-primary" id="my-btn" onclick="myValidation()">Toss</button></div>
+    </div>    
+    <p id="disp"></p>
+  </form>
+    <script>
+      
+      function myValidation(){
+        var text = flipcoin();
+        function flipcoin(){
+          var l=0;
+          var u=1;
+          if((Math.floor(Math.random()*(u - l + 1) + l))) {return "Head";}
+          return "Tail"
+        }
+        document.getElementById("disp").innerHTML = text;
+      }
+    </script>
+</body>
+</html>

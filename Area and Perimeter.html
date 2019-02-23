@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html><!--8-->
+    
+    <head>
+        <title>Area and Perimeter</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    </head>
+<body>
+  <form method="post" name="myForm" class="form-group ">
+    <pre>Area and Perimeter calculation</pre>
+    <h5>Please input numbers. 
+        For Square: Input Single Value
+        For Rectangle: Input two values </h5>
+    <div class="form-group ">
+        <div><input id="numberS" type="text" class="form-control"></div>
+        
+        <div><button type="button" class="btn btn-primary" id="my-btn" onclick="myValidation()">Submit</button></div>
+    </div>  
+    <p id="dispA"></p>  
+    <p id="disp"></p>
+  </form>
+    <script>
+        function myValidation(){
+        var s = document.getElementById("numberS").value;
+        var re=/^[0-9,\s]+$/;
+        if(s == ""){
+            document.getElementById("disp").innerHTML="Please enter a number";
+        }
+        else if((!(s.match(re)))){
+            document.getElementById("disp").innerHTML="Enter valid inputs";
+           
+        } else { 
+            //text="Area and Perimter";
+            var arr=s.split(" ").map(Number);
+        
+            if(arr.length==1){square(s);}
+            else if(arr.length==2){rectangle(arr[0], arr[1])}
+            else {document.getElementById("disp").innerHTML = "Please enter valid number of inputs"}
+        }
+        //document.getElementById("disp").innerHTML = text;
+      }
+ 
+      var square = function(l){
+          class Square{
+              constructor(l){
+                  this.l=l;
+              }
+              area(){ return this.l * this.l;}
+              perimeter(){ return this.l * 4;}
+          }
+
+          var sq = new Square(l);
+          var a = sq.area();
+          var p = sq.perimeter();
+          document.getElementById("disp").innerHTML = "Square: Area = " + a + ", Perimeter = " +p;
+      }
+
+      var rectangle = function(l, b){
+          class Rectangle{
+              constructor(l, b){
+                  this.l=l;
+                  this.b=b;
+              }
+              area(){ return this.l * this.b;}
+              perimeter(){ return 2 * (this.l + this.b)}
+          }
+
+          var re = new Rectangle(l, b);
+          var a = re.area();
+          var p = re.perimeter();
+          document.getElementById("disp").innerHTML = "Rectangle: Area = " + a + ", Perimeter = " +p;
+      }
+    </script>
+</body>
+</html>

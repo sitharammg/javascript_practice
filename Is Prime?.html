@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html><!--20-->
+    
+    <head>
+        <title>Is Prime?</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    </head>
+<body>
+  <form method="post" name="myForm" class="form-group">
+    <h4>Please input a number to check Prime or not.</h4>
+    <input id="number" type="text">
+    <button type="button" class="btn btn-primary" onclick="myValidation()">Check</button>
+
+    <p id="disp"></p>
+  </form>
+    <script>
+      function myValidation(){
+        var text, n = document.getElementById("number").value;
+        var re=/^[0-9]+$/;
+        if(n == ""){
+          text="Please enter a number";
+        }
+        else if((!(n.match(re)))|| n < 0){
+            text="Enter a valid number";
+        } else { 
+          var c=1;
+          for(i=2; i<=Math.sqrt(n); i++){
+            if(n%i==0){c+=1; }
+          }
+          if(c==1){text = "Prime"}
+          else{text = "Not Prime"}
+        }
+        document.getElementById("disp").innerHTML = text;
+      }
+      
+    </script>
+</body>
+</html>

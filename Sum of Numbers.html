@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html><!--18-->
+    
+    <head>
+        <title>Sum of Numbers</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    </head>
+<body>
+  <form method="post" name="myForm" class="form-group ">
+    <pre>Find sum of numbers between 1 to n. Dont use loop</pre>
+    <h4>Please input a number to find the sum upto th number: </h4>
+    <div class="form-group ">
+        <div><input id="number" type="text" class="form-control"></div>
+        <div><button type="button" class="btn btn-primary" id="my-btn" onclick="myValidation()">Find</button></div>
+    </div>    
+    <p id="disp"></p>
+  </form>
+    <script>
+       
+      function myValidation(){
+        var n = document.getElementById("number").value;
+        var re=/^[0-9]+$/;
+        if(n == ""){
+          text="Please enter a number";
+        }
+        else if((!(n.match(re)))|| n < 0){
+            text="Enter a number greater than 1";
+        } else { 
+            n = parseInt(n);
+            text = "Sum = " + ((n * (n+1))/2)
+        }
+        document.getElementById("disp").innerHTML = text;
+      }
+    </script>
+</body>
+</html>
