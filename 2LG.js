@@ -9,7 +9,7 @@ function Prime() {
     for (i = num - 1; i > 0; i--) {
         left++;
         if (isPrime(i)) {
-            console.log(left)
+            // console.log(left)
             break;
         }
 
@@ -18,22 +18,25 @@ function Prime() {
     for (j = num + 1; j < (2 * num); j++) {
         right++;
         if (isPrime(j)) {
-            console.log(right)
+            // console.log(right)
             break;
         }
     }
 
     if (left == right) {
-        document.getElementById("result").innerHTML = "nearest Prime Number of " + num + " is " + i;
-        console.log("nearest Prime Number of " + num + " is " + i)
+        document.getElementById("result").innerHTML = "Nearest Prime Number of " + num + " is " + i;
+        console.log("Nearest Prime Number of " + num + " is " + i)
+        alert(" ");
     }
     else if (left < right) {
-        document.getElementById("result").innerHTML = "Nnearest Prime Number of " + num + " is " + i;
-        console.log("Nnearest Prime Number of " + num + " is " + i)
+        document.getElementById("result").innerHTML = "Nearest Prime Number of " + num + " is " + i;
+        console.log("Nearest Prime Number of " + num + " is " + i)
+        alert(" ");
     }
     else {
-        document.getElementById("result").innerHTML = "Nnnearest Prime Number of " + num + " is " + j;
-        console.log("Nnnearest Prime Number of " + num + " is " + j)
+        document.getElementById("result").innerHTML = "Nearest Prime Number of " + num + " is " + j;
+        console.log("Nearest Prime Number of " + num + " is " + j)
+        alert(" ");
     }
 
 }
@@ -48,15 +51,15 @@ function isPrime(n) {
 
     if (n > 1) {
         if (flag == 0) {
-            console.log("Prime")
+            // console.log("Prime")
             return true;
         }
         else {
-            console.log("Not Prime")
+            // console.log("Not Prime")
             return false;
         }
     } else {
-        console.log("Not Prime")
+        // console.log("Not Prime")
         return false;
     }
 }
