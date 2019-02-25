@@ -1,0 +1,8 @@
+// Get current date time and convert it into 
+// Today is 18 February 2019. Its 4 hours 15 minutes and 13 seconds now 
+
+var d = new Date()
+var myMonths= ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+console.log(d)
+console.log("Today is " + d.getDate() + " " + myMonths[d.getMonth()] + " " + d.getFullYear()+ ". \
+  Its " +d.getHours() + " Hours " + d.getMinutes() + " minutes " + "and " + d.getSeconds() + " seconds now")

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html><!--12-->
+    
+    <head>
+        <title>Array to Object</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    </head>
+<body onload="focus()">
+  <form method="post" name="myForm" class="form-group ">
+    <p>Given an array of strings/numbers return each item of the array as object key 
+        and value as number of repetitions 
+        [a,b,c,a,d,c,d,c] = {‘a’:2, ‘b’:1, ‘c’:’3’, ‘d’:2} </p>
+    <h4>Please input elements and press Submit: </h4>
+    <div class="form-group ">
+        <div><input id="number" type="text" class="form-control"></div>
+        <div><button type="button" class="btn btn-primary" id="my-btn" onclick="myValidation()">Submit</button></div>
+    </div>    
+    <p id="disp"></p>
+  </form>
+    <script>
+      function focus(){
+           document.getElementById("number").focus();
+        }
+        
+      function myValidation(){
+        var n ="", text="";
+        n+= document.getElementById("number").value;
+        if(n == ""){
+          text="Please input something";
+        }
+        else { 
+            text="Accepted  " + n;
+            var arr=n.split(" ");
+            if(!(arr instanceof Array)){
+              text = "Not an array";
+          } else {
+              text="Array";
+              arr.sort()
+              var myObj={}
+              for (i=0; i< arr.length; i++){
+                if(myObj[arr[i]]){
+                    myObj[arr[i]] = myObj[arr[i]] + 1;
+                } else {
+                    myObj[arr[i]] = 1;
+              }
+            }
+            text = JSON.stringify(myObj)
+          }
+        }   
+        document.getElementById("disp").innerHTML = text;
+      }
+    </script>
+</body>
+</html>

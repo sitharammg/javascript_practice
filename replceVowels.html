@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html><!--10-->
+    
+    <head>
+        <title>Univeral</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    </head>
+<body onload="focus()">
+  <form method="post" name="myForm" class="form-group ">
+    <pre>Replace vowels from a given string with corresponding numbers 
+        aeiou=12345 
+        decoration=d2c4r1t34n </pre>
+    <h4>Please input elements and press OK: </h4>
+    <div class="form-group ">
+        <div><input id="number" type="text" class="form-control"></div>
+        <div><button type="button" class="btn btn-primary" id="my-btn" onclick="myValidation()">OK</button></div>
+    </div>    
+    <p id="disp"></p>
+  </form>
+    <script>
+      function focus(){
+           document.getElementById("number").focus();
+        }
+        function myValidation(){
+        var n ="", text="";
+        n+= document.getElementById("number").value;
+        if(n == ""){
+          text="Please input something";
+        }
+        else { 
+            var arr=n.split("");
+            console.log("Accepted  arr: "+ arr);
+            if(!(arr instanceof Array)){
+              console.log("Not array");
+              text = "Not an array";
+            } else{
+              text="Array";
+              var len=arr.length;
+              for(let i=0; i<len; i++){
+                if(arr[i]=== "a" || arr[i] === "A"){arr[i] = 1 ; console.log("Hey there",arr);}
+                else if(arr[i]=== "e" || arr[i] === "E"){arr[i] = 2}
+                else if(arr[i]=== "i" || arr[i] === "I"){arr[i] = 3}
+                else if(arr[i]=== "o" || arr[i] === "O"){arr[i] = 4}
+                else if(arr[i]=== "u" || arr[i] === "U"){arr[i] = 5}
+                else{continue}
+              }
+            text = arr.join().replace(/,/g, "");
+            console.log(arr);
+              //Here
+            }
+            
+        }
+        document.getElementById("disp").innerHTML = text;
+      }
+    </script>
+</body>
+</html>

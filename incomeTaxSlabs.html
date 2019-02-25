@@ -1,0 +1,27 @@
+// Given annual salary numbers, calculate income tax rate and income tax 
+// amount 
+// Explore income tax slabs for Individuals below 60 years
+
+//aSal = Annual Salary, tr = Tax Rate, ita = Income Tax Amount, itr = Income Tax Amount
+var aSal = 1300000, ita=0, itr=0;
+if(aSal <= 250000){
+    ita = 0 * aSal; 
+    itr = (ita * 100)/aSal
+}
+else if(aSal >= 250000 && aSal <= 500000){
+    ita = (5/100) * aSal; 
+    itr = (ita * 100)/aSal
+}
+else if(aSal >= 500000 && aSal <= 1000000){
+    ita = (20/100) * aSal; 
+    itr = (ita * 100)/aSal
+}
+else{
+    ita = (30/100) * aSal; 
+    itr = (ita * 100)/aSal
+}
+
+  
+  
+console.log("Income Tax Amount: ", ita);
+console.log("Income Tax Rate: ", itr);
